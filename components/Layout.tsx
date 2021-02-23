@@ -19,6 +19,12 @@ export default function Layout({ children, title }: Props) {
           }
         }
 
+        @media (max-width: 600px) {
+          html {
+            font-size: 100%;
+          }
+        }
+
         input,
         button {
           font: inherit;
@@ -42,7 +48,7 @@ export default function Layout({ children, title }: Props) {
       <style jsx>{`
         main {
           margin: 0 auto;
-          padding: 1.5rem;
+          padding: 0.5rem;
           max-width: 30rem;
         }
       `}</style>
