@@ -5,10 +5,6 @@ interface Item {
   name: string
 }
 
-function emptyFunction(e: Event) {
-  e.preventDefault()
-}
-
 export default function ItemList() {
   const [, updateState] = useState(null)
   const forceUpdate = useCallback(() => updateState({}), [])
