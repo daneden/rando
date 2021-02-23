@@ -1,15 +1,15 @@
 import { useState } from "react"
 
-export default function useLocalStorage<T>(
+export default function useURLState<T>(
   initialValue: T,
   key: string
 ): [T, (newValue: T) => void] {
-  // State to store our value
-  // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       // Get from local storage by key
-      const item = window.localStorage.getItem(key)
+      const queryString = window.location.search
+      const params = new URLSearchParams(queryString)
+      const item = params.get(key)
       // Parse stored json or if none return initialValue
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
@@ -19,8 +19,6 @@ export default function useLocalStorage<T>(
     }
   })
 
-  // Return a wrapped version of useState's setter function that ...
-  // ... persists the new value to localStorage.
   const setValue = (value: T | ((val: T) => T)) => {
     try {
       // Allow value to be a function so we have same API as useState
@@ -28,8 +26,14 @@ export default function useLocalStorage<T>(
         value instanceof Function ? value(storedValue) : value
       // Save state
       setStoredValue(valueToStore)
-      // Save to local storage
-      window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      // Save to URL query string
+      const params = new URLSearchParams()
+      params.set(key, JSON.stringify(valueToStore))
+      window.history.replaceState(
+        "",
+        "",
+        `${window.location.href.split("?")[0]}?${params.toString()}`
+      )
     } catch (error) {
       // A more advanced implementation would handle the error case
       console.log(error)

@@ -1,15 +1,11 @@
 import { ChangeEvent, useCallback, useEffect, useState } from "react"
-import useLocalStorage from "../utils/useLocalStorage"
-
-interface Item {
-  name: string
-}
+import useURLState from "../utils/useURLState"
 
 export default function ItemList() {
   const [, updateState] = useState(null)
   const forceUpdate = useCallback(() => updateState({}), [])
 
-  const [items, setItems] = useLocalStorage<Item[]>([], "randoCandidates")
+  const [items, setItems] = useURLState<string[]>([], "items")
   const [itemIndex, setItemIndex] = useState<number>(null)
   const [inputValue, setInputValue] = useState("")
 
@@ -20,12 +16,8 @@ export default function ItemList() {
   }
 
   function updateItems() {
-    const currentItems = items as Item[]
-    const newItems = inputValue.split(/, ?/).map((item) => {
-      return {
-        name: item,
-      }
-    })
+    const currentItems = items as string[]
+    const newItems = inputValue.split(/, ?/)
 
     const combined = Array.from(new Set(currentItems.concat(newItems)))
     setItems(combined)
@@ -65,12 +57,9 @@ export default function ItemList() {
         ) : (
           <>
             <ul>
-              {items.map((item: Item, index: number) => (
-                <li
-                  className={index == itemIndex ? "selected" : ""}
-                  key={item.name}
-                >
-                  {item.name}
+              {items.map((item: string, index: number) => (
+                <li className={index == itemIndex ? "selected" : ""} key={item}>
+                  {item}
 
                   <button onClick={() => removeAtIndex(index)}>&times;</button>
                 </li>
