@@ -58,7 +58,7 @@ export default function ItemList() {
             onChange={updateInputValue}
             placeholder="Enter an item or comma-separated items"
           />
-          <button onClick={updateItems}>Add item(s) to list</button>
+          <button onClick={updateItems}>Add item(s)</button>
         </form>
         {items.length == 0 ? (
           <p className="placeholder">Enter items above</p>
