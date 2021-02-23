@@ -12,7 +12,13 @@ export default function ItemList() {
   useEffect(() => {}, [items])
 
   function updateSelection() {
-    setItemIndex(Math.floor(Math.random() * items.length))
+    const newCandidate = () => Math.floor(Math.random() * items.length)
+    let candidate = newCandidate()
+    while (candidate === itemIndex && items.length >= 2) {
+      candidate = newCandidate()
+    }
+
+    setItemIndex(candidate)
   }
 
   function updateItems() {
