@@ -52,7 +52,11 @@ export default function ItemList() {
   return (
     <>
       <div>
-        <form onSubmit={emptyFunction}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+          }}
+        >
           <input
             value={inputValue}
             onChange={updateInputValue}

@@ -30,6 +30,7 @@ export default function Layout({ children, title }: Props) {
           border-radius: 0.25em;
           border: none;
           cursor: pointer;
+          color: inherit;
         }
 
         input {
