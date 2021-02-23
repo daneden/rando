@@ -19,6 +19,10 @@ export default function ItemList() {
     }
 
     setItemIndex(candidate)
+    console.log(items[candidate])
+    document
+      .querySelector(`#item-${items[candidate]}`)
+      .scrollIntoView({ behavior: "smooth", block: "center" })
   }
 
   function updateItems() {
@@ -64,7 +68,11 @@ export default function ItemList() {
           <>
             <ul>
               {items.map((item: string, index: number) => (
-                <li className={index == itemIndex ? "selected" : ""} key={item}>
+                <li
+                  className={index == itemIndex ? "selected" : ""}
+                  key={item}
+                  id={`item-${item}`}
+                >
                   {item}
 
                   <button onClick={() => removeAtIndex(index)}>&times;</button>
