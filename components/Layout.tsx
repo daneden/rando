@@ -17,6 +17,10 @@ export default function Layout({ children, title }: Props) {
             color: #fefefe;
             background-color: #222;
           }
+
+          button {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          }
         }
 
         @media (max-width: 600px) {
