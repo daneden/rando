@@ -43,6 +43,7 @@ export default function Layout({ children, title }: Props) {
 
         button:disabled {
           opacity: 0.5;
+          cursor: not-allowed;
         }
 
         button:hover:not(:disabled),
