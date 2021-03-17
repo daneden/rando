@@ -17,10 +17,6 @@ export default function Layout({ children, title }: Props) {
             color: #fefefe;
             background-color: #222;
           }
-
-          button {
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
-          }
         }
 
         @media (max-width: 600px) {
@@ -43,6 +39,7 @@ export default function Layout({ children, title }: Props) {
           color: inherit;
           font-weight: 500;
           transition: 0.2s ease;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
         }
 
         button:disabled {
