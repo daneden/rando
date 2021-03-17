@@ -87,8 +87,8 @@ export default function ItemList() {
         .placeholder {
           text-align: center;
           padding: 2em;
-          opacity: 0.5;
-          background-color: rgba(128, 128, 128, 0.2);
+          background-color: rgba(128, 128, 128, 0.05);
+          color: rgba(128, 128, 128);
           border-radius: 0.25em;
         }
 
