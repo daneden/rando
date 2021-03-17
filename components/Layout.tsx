@@ -46,6 +46,10 @@ export default function Layout({ children, title }: Props) {
           padding: 0.25em 0.5em;
           background-color: transparent;
         }
+
+        input:focus {
+          border-color: royalblue;
+        }
       `}</style>
       <style jsx>{`
         main {
