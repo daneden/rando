@@ -19,7 +19,7 @@ export default function ItemList() {
     }
 
     setItemIndex(candidate)
-    console.log(items[candidate])
+
     document
       .querySelector(`#item-${items[candidate]}`)
       .scrollIntoView({ behavior: "smooth", block: "center" })
