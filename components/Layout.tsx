@@ -57,6 +57,7 @@ export default function Layout({ children, title }: Props) {
           border: 1px solid rgba(128, 128, 128, 0.3);
           padding: 0.25em 0.5em;
           background-color: transparent;
+          color: inherit;
         }
 
         input:focus {
