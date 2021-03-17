@@ -63,7 +63,7 @@ export default function ItemList() {
           <button onClick={updateItems}>Add item(s)</button>
         </form>
         {items.length == 0 ? (
-          <p className="placeholder">Enter items above</p>
+          <p className="placeholder">☝️ Enter items above ☝️</p>
         ) : (
           <>
             <ul>
@@ -79,7 +79,7 @@ export default function ItemList() {
                 </li>
               ))}
             </ul>
-            <button onClick={updateSelection}>Pick a random item</button>
+            <button onClick={updateSelection}>🎲 Pick a random item</button>
           </>
         )}
       </div>
