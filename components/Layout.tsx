@@ -41,8 +41,12 @@ export default function Layout({ children, title }: Props) {
           transition: 0.2s ease;
         }
 
-        button:hover,
-        button:focus {
+        button:disabled {
+          opacity: 0.5;
+        }
+
+        button:hover:not(:disabled),
+        button:focus:not(:disabled) {
           background-color: royalblue;
           color: white;
         }

@@ -36,7 +36,11 @@ export default function ItemList() {
   }
 
   function updateInputValue(e: ChangeEvent<HTMLInputElement>) {
-    setInputValue(e.currentTarget.value)
+    const value = e.currentTarget.value
+
+    if (value != "") {
+      setInputValue(e.currentTarget.value)
+    }
   }
 
   function removeAtIndex(index: number) {
@@ -60,7 +64,9 @@ export default function ItemList() {
             onChange={updateInputValue}
             placeholder="Enter an item or comma-separated items"
           />
-          <button onClick={updateItems}>Add item(s)</button>
+          <button disabled={inputValue.length === 0} onClick={updateItems}>
+            Add item(s)
+          </button>
         </form>
         {items.length == 0 ? (
           <p className="placeholder">☝️ Enter items above ☝️</p>
