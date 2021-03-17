@@ -94,7 +94,6 @@ export default function ItemList() {
           text-align: center;
           padding: 2em;
           background-color: rgba(128, 128, 128, 0.05);
-          color: rgba(128, 128, 128);
           border-radius: 0.25em;
         }
 
