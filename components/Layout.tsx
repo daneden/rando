@@ -32,11 +32,12 @@ export default function Layout({ children, title }: Props) {
 
         button {
           background-color: rgba(128, 128, 128, 0.15);
-          padding: 0.25em 0.5em;
+          padding: 0.25em 0.75em;
           border-radius: 0.25em;
           border: none;
           cursor: pointer;
           color: inherit;
+          font-weight: 500;
         }
 
         input {
