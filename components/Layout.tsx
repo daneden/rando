@@ -38,6 +38,13 @@ export default function Layout({ children, title }: Props) {
           cursor: pointer;
           color: inherit;
           font-weight: 500;
+          transition: 0.2s ease;
+        }
+
+        button:hover,
+        button:focus {
+          background-color: royalblue;
+          color: white;
         }
 
         input {
