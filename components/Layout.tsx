@@ -1,3 +1,5 @@
+import Head from "next/head"
+
 interface Props {
   children: React.ReactNode
   title?: string
@@ -6,6 +8,12 @@ interface Props {
 export default function Layout({ children, title }: Props) {
   return (
     <>
+      {title && (
+        <Head>
+          <title>{title}</title>
+        </Head>
+      )}
+
       <main>{children}</main>
       <style jsx global>{`
         html {
