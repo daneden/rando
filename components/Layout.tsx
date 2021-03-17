@@ -44,6 +44,7 @@ export default function Layout({ children, title }: Props) {
           border-radius: 0.25em;
           border: 1px solid rgba(128, 128, 128, 0.3);
           padding: 0.25em 0.5em;
+          background-color: transparent;
         }
       `}</style>
       <style jsx>{`
